@@ -7,8 +7,8 @@ from selenium import webdriver
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 
-# TODO: Put all AI into Lifecycle package and add a licence to it
-from lifecycle import Sherlock
+# TODO: export dmm creation/modification into dmm engine
+# from lifecycle import dmm
 
 # Starting testcases
 class Helper(unittest.TestCase):
@@ -22,10 +22,11 @@ class Helper(unittest.TestCase):
 
     def intreractiveRPA(self):
         driver = self.driver
-        Sherlock = Sherlock()
-
-
-
+        
+        # TODO: ask what task we're doing
+        
+        # TODO: load and execute dmm of the task
+        
         # TODO: Realize logging
 
     def is_element_present(self, how, what):
