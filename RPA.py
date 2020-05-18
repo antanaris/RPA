@@ -24,7 +24,14 @@ class Helper(unittest.TestCase):
         driver = self.driver
         
         # TODO: ask what task we're doing
-        
+            # task1.dmm -- Passing all untested test cases in the TestRail run
+                # variables
+                    # testrun_url:
+                    # testrun_id: R1
+                    # version: 0.1
+                    # elapsed: 1m
+
+
         # TODO: load and execute dmm of the task
         
         # TODO: Realize logging
