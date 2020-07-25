@@ -1,5 +1,5 @@
 # RPA
-A helping hand for testing automation and knowledge organization @Amber
+A helping hand for QA testing workflow automation
 
 Documentation website
 
