@@ -7,11 +7,19 @@ from selenium import webdriver
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 
+from automation import web
+
 # TODO: export dmm creation/modification into dmm engine
 # from lifecycle import dmm
 
 # Starting testcases
 class Helper(unittest.TestCase):
+    """
+    Selenium helper
+    ----------
+    It is a core class to run tests using Selenium library
+    """
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
@@ -19,21 +27,41 @@ class Helper(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
+    def test_interactiveRPA(self):
+        """
+        The main logic of interactive testing.
 
-    def intreractiveRPA(self):
+        ---
+        `test_` added to run under unittest
+        """
         driver = self.driver
-        
+
         # TODO: ask what task we're doing
-            # task1.dmm -- Passing all untested test cases in the TestRail run
-                # variables
-                    # testrun_url:
-                    # testrun_id: R1
-                    # version: 0.1
-                    # elapsed: 1m
+        # login.py -- Passing all untested test cases in the TestRail run
+
+        # Testrun variables
+        testrun_url = 'https://lifecycletest2.testrail.io/index.php?/runs/view/1'
+        testrun_id = 'R1'
+        version = '0.1'
+        elapsed = '1m'
+
+        username = 'anastasia@lifecycle.today'
+        password = "Pass1234!"
+
+        # Load the testrun page
+        driver.get(testrun_url)
+
+        # TODO: login
+
+        # if login screen
+            # url contains /auth/login
+            # page has "Log into Your Account" text
+        # execute login steps from login.py until next_steps.json is empty
+
 
 
         # TODO: load and execute dmm of the task
-        
+
         # TODO: Realize logging
 
     def is_element_present(self, how, what):
@@ -66,7 +94,8 @@ class Helper(unittest.TestCase):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
 
-    def executeStep(self, selector_type, selector, action_type, wait = True):
+    #TODO: Extend actions for next_steps.json
+    def executeStep(self, selector_type, selector, action_type, wait=True):
         driver = self.driver
         # Run a step with selenium driver
         try:
@@ -97,6 +126,7 @@ class Helper(unittest.TestCase):
             selector = step["selector"]
             action_type = step["action"]
             self.executeStep(selector_type, selector, action_type)
+
 
 if __name__ == "__main__":
     unittest.main()
